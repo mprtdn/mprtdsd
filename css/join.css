@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Logo positionné à gauche */
+.logo {
+    margin-top: 3px; /* Ajustement du top pour un meilleur alignement */
+    position: absolute; /* Permet de le placer exactement à gauche */
+    left: 20px; /* Plus éloigné du bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.site-logo {
+    width: 100px; /* Taille réduite du logo pour mieux s'adapter */
+    height: auto; /* Conserve les proportions */
+    display: block;
+}
+
+/* Style général de la navbar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre avec transparence */
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments à gauche et à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menu de navigation (liste horizontale par défaut) */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: 50px; /* Pousse les onglets plus vers la droite */
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a i {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.nav-list a:hover {
+    color: #34a853;
+}
+
+/* Hamburger menu pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* Responsive Design pour mobile */
+@media (max-width: 1024px) {  /* Le hamburger apparaîtra dès que l'écran est plus petit que 1024px */
+    .nav-list {
+        display: none; /* Cache le menu lorsque la largeur est réduite */
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 60px; /* Un peu d'espace au-dessus du menu */
+    }
+
+    /* Affiche le menu quand il est actif (hamburger cliqué) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajout d'un espace entre le menu et le logo */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Affiche le hamburger menu */
+    .hamburger {
+        display: flex;
+        margin-left: auto; /* Décalage à droite du hamburger */
+    }
+
+    /* Animation hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* Espacement entre les éléments du menu */
+    .nav-list li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajoute une transition fluide pour l'apparition du menu hamburger */
+@media (max-width: 1200px) { /* La transition pour les tailles d'écrans plus petites */
+    .main-nav .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Positionne plus à droite les onglets sur les petits écrans */
+    .nav-list {
+        margin-left: 100px; /* Augmente la marge pour éloigner les onglets du logo */
+    }
+}
+
+/* Style pour le bouton CTA */
+.cta-btn {
+    background-color: #16a085;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    text-transform: uppercase; /* Mettre en majuscule pour un effet plus professionnel */
+    letter-spacing: 1px; /* Ajouter un espacement entre les lettres */
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+    background-color: #1abc9c;
+    transform: translateY(-5px); /* Effet de léger déplacement lors du survol */
+}
+
+.cta-btn:active {
+    transform: translateY(2px); /* Légère pression sur le bouton */
+}
+
+/* Section For Freelancers */
+#for-freelancers {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre subtile autour de la section */
+    border-radius: 8px; /* Coins arrondis pour un look plus doux */
+    margin-top: 80px; /* Espacement pour éviter que la section ne chevauche la navbar */
+}
+
+#for-freelancers h2 {
+    font-size: 36px;
+    color: #16a085;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#for-freelancers p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Liste des points de Freelancers */
+#for-freelancers ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+#for-freelancers ul li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+#for-freelancers ul li::before {
+    content: '\2022'; /* Ajouter un point avant chaque élément de la liste */
+    font-size: 25px;
+    color: #16a085;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Section For Companies */
+#for-companies {
+    background-color: #ecf5f3;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 40px; /* Ajout d'une marge pour éviter le chevauchement */
+}
+
+#for-companies h2 {
+    font-size: 36px;
+    color: #16a085;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#for-companies p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#for-companies ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+#for-companies ul li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+#for-companies ul li::before {
+    content: '\2022'; /* Ajouter un point avant chaque élément de la liste */
+    font-size: 25px;
+    color: #16a085;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Section Application Process */
+#application-process {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 40px; /* Ajout d'une marge pour éviter le chevauchement */
+}
+
+#application-process h2 {
+    font-size: 36px;
+    color: #16a085;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#application-process p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#application-process ol {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-left: 25px; /* Ajoute un peu de padding pour une meilleure lisibilité */
+}
+
+#application-process ol li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#application-process ol li::before {
+    content: '\2022'; /* Ajouter un point avant chaque élément de la liste */
+    font-size: 25px;
+    color: #16a085;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centre horizontalement le contenu */
+    align-items: center; /* Centre verticalement le contenu */
+    text-align: center; /* Centre le texte dans le conteneur */
+}
+
+footer .footer-left p {
+    margin: 0; /* Enlève les marges autour du texte */
+}
+
+/* Styles responsives : pour les petits écrans */
+
+/* Écrans de 768px et moins (tablettes et petits écrans) */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px; /* Ajuste le padding sur les petits écrans */
+    }
+
+    footer .footer-left {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+}
+
+
+/* Animation de la transition pour les sections */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#for-freelancers, #for-companies, #application-process {
+    animation: fadeIn 1s ease-in-out; /* Appliquer une animation d'apparition au chargement */
+}
+
+/* Amélioration de l'espace autour des sections */
+#for-freelancers, #for-companies, #application-process {
+    margin-bottom: 50px; /* Augmente la marge entre les sections pour une meilleure lisibilité */
+}
+
+/* Pour les petits écrans (max-width: 768px) */
+@media (max-width: 768px) {
+    #for-freelancers, #for-companies, #application-process {
+        margin-top: 120px; /* Augmente la marge pour éviter le chevauchement avec la navbar fixe */
+    }
+
+    #for-freelancers h2, #for-companies h2, #application-process h2 {
+        font-size: 30px;
+    }
+
+    #for-freelancers p, #for-companies p, #application-process p {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Pour les très petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+    #for-freelancers h2, #for-companies h2, #application-process h2 {
+        font-size: 26px;
+    }
+
+    #for-freelancers p, #for-companies p, #application-process p {
+        font-size: 14px;
+    }
+
+    .cta-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}

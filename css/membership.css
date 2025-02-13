@@ -1,0 +1,537 @@
+/* Intro Section */
+#intro {
+    background: linear-gradient(to right, rgba(22, 160, 133, 0.9), rgba(41, 128, 185, 0.9)); /* Dégradé */
+    min-height: 100vh; /* Assure que la section occupe toute la hauteur de la fenêtre */
+    display: flex;
+    background-image: url('membership.jpg'); /* L'image de fond */
+    background-size: cover;
+    background-position: center; /* Centre l'image */
+    background-attachment: fixed; /* Crée l'effet parallax */
+    align-items: center; /* Centrer verticalement le contenu */
+    justify-content: center; /* Centrer horizontalement le contenu */
+    margin-top: 0; /* Évite un décalage entre la navbar et l'intro */
+    padding: 0 20px; /* Padding interne */
+    box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur totale */
+    text-align: center; /* Centrer le texte */
+    opacity: 1; /* Assurer que l'élément est visible */
+    transition: opacity 0.5s ease-out; /* Ajout d'une transition fluide */
+    animation: fadeInUp 1.5s forwards; /* Animation pour l'intro */
+}
+
+/* Titre de l'intro */
+#intro h2 {
+    font-size: 60px; /* Augmenter la taille du titre */
+    font-weight: 900; /* Gras pour une présence forte */
+    color: white; /* Titre en blanc */
+    margin-bottom: 20px;
+    letter-spacing: 2px; /* Espacement des lettres pour plus d'aération */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre ajoutée pour un meilleur contraste */
+    opacity: 0; /* Initialement invisible */
+    animation: fadeInUp 1.5s ease-out 0.3s forwards; /* Animation d'apparition avec un léger délai */
+}
+
+#intro p {
+    font-size: 35px; /* Taille du texte en px */
+    font-weight: 700; /* Gras pour une meilleure lisibilité */
+    color: white; /* Couleur claire du texte */
+    margin-bottom: 30px; /* Marge sous le texte */
+    max-width: 800px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre sur le texte */
+    animation: slideInFade 2.2s ease-out; /* Animation pour l'apparition */
+}
+
+/* Animation de fade-in et slide-up */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Commence en bas */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Se déplace vers sa position d'origine */
+    }
+}
+
+/* Logo positionné à gauche */
+.logo {
+    margin-top: 3px; /* Ajustement du top pour un meilleur alignement */
+    position: absolute; /* Permet de le placer exactement à gauche */
+    left: 20px; /* Plus éloigné du bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.site-logo {
+    width: 100px; /* Taille réduite du logo pour mieux s'adapter */
+    height: auto; /* Conserve les proportions */
+    display: block;
+}
+
+/* Style général de la navbar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre avec transparence */
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments à gauche et à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menu de navigation (liste horizontale par défaut) */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: 50px; /* Pousse les onglets plus vers la droite */
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a i {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.nav-list a:hover {
+    color: #34a853;
+}
+
+/* Hamburger menu pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* Responsive Design pour mobile */
+@media (max-width: 1024px) {  /* Le hamburger apparaîtra dès que l'écran est plus petit que 1024px */
+    .nav-list {
+        display: none; /* Cache le menu lorsque la largeur est réduite */
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 60px; /* Un peu d'espace au-dessus du menu */
+    }
+
+    /* Affiche le menu quand il est actif (hamburger cliqué) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajout d'un espace entre le menu et le logo */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Affiche le hamburger menu */
+    .hamburger {
+        display: flex;
+        margin-left: auto; /* Décalage à droite du hamburger */
+    }
+
+    /* Animation hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* Espacement entre les éléments du menu */
+    .nav-list li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajoute une transition fluide pour l'apparition du menu hamburger */
+@media (max-width: 1200px) { /* La transition pour les tailles d'écrans plus petites */
+    .main-nav .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Positionne plus à droite les onglets sur les petits écrans */
+    .nav-list {
+        margin-left: 100px; /* Augmente la marge pour éloigner les onglets du logo */
+    }
+}
+
+/* Supprimer la marge de 80px entre la navbar et la section intro */
+#business-plans, #freelancer-plans, #sign-up {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+    margin-top: 0; /* Enlever la marge top pour la section suivante */
+    opacity: 0; /* Initialement invisible */
+    transform: translateY(50px); /* Déplace légèrement vers le bas */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#intro .container, #business-plans .container, #freelancer-plans .container, #sign-up .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: bold;
+    color: #16a085;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 22px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsiveness for Mobile */
+@media (max-width: 768px) {
+    /* Intro Section on Mobile */
+    #intro {
+        padding: 0 15px; /* Réduire le padding sur mobile */
+        min-height: 50vh; /* S'assurer qu'elle occupe toute la hauteur de l'écran */
+    }
+
+    #intro h2 {
+        font-size: 32px; /* Réduire la taille du titre sur mobile */
+        margin-bottom: 15px;
+    }
+
+    #intro p {
+        font-size: 18px; /* Réduire la taille du texte sur mobile */
+    }
+
+    /* Business Plans and Freelancer Plans Section */
+    #business-plans, #freelancer-plans, #sign-up {
+        padding: 40px 20px; /* Réduire les paddings pour les petites tailles d'écran */
+    }
+
+    h2 {
+        font-size: 28px; /* Réduire la taille du titre sur mobile */
+    }
+
+    p {
+        font-size: 18px; /* Réduire la taille du texte pour un meilleur confort de lecture */
+    }
+}
+
+/* Responsive Design for smaller devices */
+@media (max-width: 480px) {
+    /* Adjust Font Size for Small Screens */
+    #intro h2 {
+        font-size: 26px; /* Réduire encore la taille du titre sur les très petits écrans */
+    }
+
+    #intro p {
+        font-size: 16px; /* Réduire le texte pour éviter l'encombrement */
+    }
+}
+
+
+/* Business Plans Section */
+#business-plans .plan-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#business-plans .plan-card h3 {
+    font-size: 28px;
+    color: #16a085;
+    margin-bottom: 15px;
+}
+
+#business-plans .plan-card p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+}
+
+#business-plans .plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Freelancer Benefits Section */
+#freelancer-plans ul {
+    list-style: none;
+    padding: 0;
+}
+
+#freelancer-plans ul li {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+#freelancer-plans ul li::before {
+    content: "\2022";
+    color: #16a085;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+/* Sign Up Section */
+#sign-up {
+    background-color: #16a085;
+    color: white;
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+#sign-up h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#sign-up p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #ffffff;
+    color: #16a085;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #16a085;
+    color: white;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-content h3 {
+    font-size: 24px;
+    color: #16a085;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-size: 18px;
+    color: #555;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    #business-plans .plan-card, #freelancer-plans ul li {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        font-size: 18px;
+    }
+}
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour chaque section */
+#intro.is-visible, #business-plans.is-visible, #freelancer-plans.is-visible, #sign-up.is-visible {
+    animation: fadeInUp 0.4s forwards;
+}
+
+/* Animation de la section "Business Plans" avec un délai */
+#business-plans.is-visible {
+    animation-delay: 0.3s;
+}
+
+/* Animation de la section "Freelancer Plans" avec un délai */
+#freelancer-plans.is-visible {
+    animation-delay: 0.4s;
+}
+
+/* Animation de la section "Sign Up" avec un délai */
+#sign-up.is-visible {
+    animation-delay: 0.4s;
+}
+
+/* Footer */
+footer {
+    background-color: #333;  /* Couleur de fond du footer */
+    color: #fff;  /* Forcer la couleur du texte en blanc */
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Centre horizontalement le contenu */
+    align-items: center;  /* Centre verticalement le contenu */
+    text-align: center;  /* Centre le texte */
+}
+
+/* S'assurer que tous les éléments à l'intérieur du footer héritent de la couleur blanche */
+footer .footer-left p,
+footer .footer-left a,  /* Si tu as des liens dans ton footer */
+footer .footer-left span, /* Si tu as des éléments span dans le footer */
+footer .footer-left li {  /* Si tu as une liste dans le footer */
+    color: #fff; /* Forcer la couleur du texte à blanc */
+}
+
+/* Styles responsives : pour les petits écrans */
+
+/* Écrans de 768px et moins (tablettes et petits écrans) */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px;  /* Ajuste le padding sur les petits écrans */
+    }
+
+    footer .footer-left {
+        width: 100%;  /* Prend toute la largeur sur les petits écrans */
+    }
+}
+
+
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour chaque section */
+#intro.is-visible, #business-plans.is-visible, #freelancer-plans.is-visible, #sign-up.is-visible {
+    animation: fadeInUp 0.4s forwards;
+}
+
+/* Animation de la section "Business Plans" avec un délai */
+#business-plans.is-visible {
+    animation-delay: 0.3s;
+}
+
+/* Animation de la section "Freelancer Plans" avec un délai */
+#freelancer-plans.is-visible {
+    animation-delay: 0.4s;
+}
+
+/* Animation de la section "Sign Up" avec un délai */
+#sign-up.is-visible {
+    animation-delay: 0.4s;
+}

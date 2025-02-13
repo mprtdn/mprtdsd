@@ -1,0 +1,78 @@
+/* Blog Section Styles */
+.blog-section {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.blog-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-section .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.blog-item {
+    flex: 1;
+    min-width: 250px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-item h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.blog-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+<section id="blog" class="blog-section">
+         <div class="container">
+         <h2 class="section-title">Blog</h2>
+            <div class="blog-posts"> <!-- Changé de .blog-content à .blog-posts pour correspondre au CSS -->
+                <div class="blog-post"> <!-- Changé de .blog-item à .blog-post pour correspondre au CSS -->
+                    <h3><a href="#" class="blog-link">Freelancing Tips</a></h3>
+                 <div class="meta">
+                     <span>By John Doe</span> | <span>March 15, 2024</span>
+                 </div>
+                <p>Articles about freelancing best practices, productivity, and client management. Learn the best methods to manage your freelance career and grow your client base efficiently.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <h3><a href="#" class="blog-link">Industry Insights</a></h3>
+                <div class="meta">
+                    <span>By Jane Smith</span> | <span>February 10, 2024</span>
+                </div>
+                <p>Stay updated with the latest trends in freelancing, remote work, and the changing landscape of the industry. This article covers the future of freelancing in the digital age.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <h3><a href="#" class="blog-link">Company News</a></h3>
+                <div class="meta">
+                    <span>By Admin</span> | <span>January 5, 2024</span>
+                </div>
+                <p>Announcements about new partnerships, events, or features for freelancers. Learn how our latest developments will impact you and your business.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>

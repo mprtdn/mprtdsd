@@ -1,0 +1,436 @@
+/* Section Intro */
+#intro {
+    background: linear-gradient(to right, rgba(22, 160, 133, 0.9), rgba(41, 128, 185, 0.9)); /* Dégradé */
+    color: #fff; /* Texte en blanc pour la cohérence */
+    padding: 80px 20px; /* Padding en px */
+    text-align: center;
+    background-image: url('howitworks.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh; /* Ajuster à 50% de la hauteur de la fenêtre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0; /* Enlève la marge entre la navbar et la section intro */
+}
+
+/* Police & Taille de texte */
+#intro h2 {
+    font-size: 60px; /* Taille du titre en px */
+    font-weight: 900; /* Gras, pour une présence forte */
+    letter-spacing: 3px; /* Espacement des lettres */
+    margin-bottom: 20px; /* Espacement avec le texte en dessous */
+    color: #f2eeee; /* Couleur claire comme dans la section hero */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre pour rendre le texte plus visible */
+    animation: slideInFade 1.8s ease-out; /* Animation pour l'apparition */
+}
+
+/* Texte de la description dans l'intro */
+#intro p {
+    font-size: 35px; /* Taille du texte en px */
+    font-weight: 700; /* Gras pour une meilleure lisibilité */
+    color: #f4e8e8; /* Couleur claire du texte */
+    margin-bottom: 30px; /* Marge sous le texte */
+    max-width: 800px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre sur le texte */
+    animation: slideInFade 2.2s ease-out; /* Animation pour l'apparition */
+}
+/* Logo positionné à gauche */
+.logo {
+    margin-top: 3px; /* Ajustement du top pour un meilleur alignement */
+    position: absolute; /* Permet de le placer exactement à gauche */
+    left: 20px; /* Plus éloigné du bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.site-logo {
+    width: 100px; /* Taille réduite du logo pour mieux s'adapter */
+    height: auto; /* Conserve les proportions */
+    display: block;
+}
+
+/* Style général de la navbar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre avec transparence */
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments à gauche et à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menu de navigation (liste horizontale par défaut) */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: 50px; /* Pousse les onglets plus vers la droite */
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a i {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.nav-list a:hover {
+    color: #34a853;
+}
+
+/* Hamburger menu pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* Responsive Design pour mobile */
+@media (max-width: 1024px) {  /* Le hamburger apparaîtra dès que l'écran est plus petit que 1024px */
+    .nav-list {
+        display: none; /* Cache le menu lorsque la largeur est réduite */
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 60px; /* Un peu d'espace au-dessus du menu */
+    }
+
+    /* Affiche le menu quand il est actif (hamburger cliqué) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajout d'un espace entre le menu et le logo */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Affiche le hamburger menu */
+    .hamburger {
+        display: flex;
+        margin-left: auto; /* Décalage à droite du hamburger */
+    }
+
+    /* Animation hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* Espacement entre les éléments du menu */
+    .nav-list li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajoute une transition fluide pour l'apparition du menu hamburger */
+@media (max-width: 1200px) { /* La transition pour les tailles d'écrans plus petites */
+    .main-nav .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Positionne plus à droite les onglets sur les petits écrans */
+    .nav-list {
+        margin-left: 100px; /* Augmente la marge pour éloigner les onglets du logo */
+    }
+}
+
+/* Animation pour la section Intro */
+@keyframes slideInFade {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for mobile devices */
+@media (max-width: 768px) {
+    #intro {
+        padding: 60px 15px; /* Moins de padding pour les écrans plus petits */
+    }
+
+    #intro h2 {
+        font-size: 36px; /* Taille du titre réduite pour les petits écrans */
+    }
+
+    #intro p {
+        font-size: 18px; /* Taille du texte réduite pour les petits écrans */
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Animation pour la section Intro */
+@keyframes slideInFade {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section avec les étapes (Step 1, Step 2, Step 3) */
+#step-1, #step-2, #step-3 {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Pour la section #intro (texte en blanc) */
+#intro h2, #intro p {
+    color: #fff; /* Change la couleur du texte en blanc */
+}
+
+/* Animation d'apparition des sections au défilement */
+.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Individual Steps */
+#step-1, #step-2, #step-3 {
+    background-color: #ffffff;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 40px 20px;
+}
+
+#step-1:hover, #step-2:hover, #step-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#step-1 h2, #step-2 h2, #step-3 h2 {
+    color: #16a085;
+}
+
+#step-1 p, #step-2 p, #step-3 p {
+    color: #555;
+    font-size: 22px; /* Augmenter la taille du texte dans ces étapes */
+    line-height: 1.6;
+}
+
+/* Styling for mobile devices */
+@media (max-width: 768px) {
+    #intro, #step-1, #step-2, #step-3 {
+        padding: 40px 15px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 18px; /* Ajuster la taille du texte pour les appareils mobiles */
+    }
+
+    #step-1, #step-2, #step-3 {
+        padding: 30px;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour chaque section */
+#intro, #step-1, #step-2, #step-3 {
+    animation: fadeInUp 0.6s forwards;
+}
+
+#step-1 {
+    animation-delay: 0.3s; /* Décalage de l'animation pour les étapes */
+}
+
+#step-2 {
+    animation-delay: 0.6s;
+}
+
+#step-3 {
+    animation-delay: 0.9s;
+}
+
+/* Animation lors du défilement */
+@media (min-width: 768px) {
+    #intro.is-visible, #step-1.is-visible, #step-2.is-visible, #step-3.is-visible {
+        animation: fadeInUp 0.6s forwards;
+    }
+}
+
+/* Pour les petits écrans */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centre horizontalement le contenu */
+    align-items: center; /* Centre verticalement le contenu */
+    text-align: center; /* Centre le texte dans le conteneur */
+}
+
+footer .footer-left p {
+    margin: 0; /* Enlève les marges autour du texte */
+}
+
+/* Styles responsives : pour les petits écrans */
+
+/* Écrans de 768px et moins (tablettes et petits écrans) */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px; /* Ajuste le padding sur les petits écrans */
+    }
+
+    footer .footer-left {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+}
+
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour chaque section */
+#intro, #step-1, #step-2, #step-3 {
+    animation: fadeInUp 0.6s forwards;
+}
+
+#step-1 {
+    animation-delay: 0.3s; /* Décalage de l'animation pour les étapes */
+}
+
+#step-2 {
+    animation-delay: 0.6s;
+}
+
+#step-3 {
+    animation-delay: 0.9s;
+}
+
+/* Animation lors du défilement */
+@media (min-width: 768px) {
+    #intro.is-visible, #step-1.is-visible, #step-2.is-visible, #step-3.is-visible {
+        animation: fadeInUp 0.6s forwards;
+    }
+}
+
+/* Pour les petits écrans */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}

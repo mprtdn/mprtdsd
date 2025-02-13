@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Animation slideInFade */
+@keyframes slideInFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Logo positionné à gauche */
+.logo {
+    margin-top: 3px; /* Ajustement du top pour un meilleur alignement */
+    position: absolute; /* Permet de le placer exactement à gauche */
+    left: 20px; /* Plus éloigné du bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.site-logo {
+    width: 100px; /* Taille réduite du logo pour mieux s'adapter */
+    height: auto; /* Conserve les proportions */
+    display: block;
+}
+
+/* Style général de la navbar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre avec transparence */
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments à gauche et à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menu de navigation (liste horizontale par défaut) */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: 50px; /* Pousse les onglets plus vers la droite */
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a i {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.nav-list a:hover {
+    color: #34a853;
+}
+
+/* Hamburger menu pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* Responsive Design pour mobile */
+@media (max-width: 1024px) {  /* Le hamburger apparaîtra dès que l'écran est plus petit que 1024px */
+    .nav-list {
+        display: none; /* Cache le menu lorsque la largeur est réduite */
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 60px; /* Un peu d'espace au-dessus du menu */
+    }
+
+    /* Affiche le menu quand il est actif (hamburger cliqué) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajout d'un espace entre le menu et le logo */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Affiche le hamburger menu */
+    .hamburger {
+        display: flex;
+        margin-left: auto; /* Décalage à droite du hamburger */
+    }
+
+    /* Animation hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* Espacement entre les éléments du menu */
+    .nav-list li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajoute une transition fluide pour l'apparition du menu hamburger */
+@media (max-width: 1200px) { /* La transition pour les tailles d'écrans plus petites */
+    .main-nav .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Positionne plus à droite les onglets sur les petits écrans */
+    .nav-list {
+        margin-left: 100px; /* Augmente la marge pour éloigner les onglets du logo */
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, rgba(22, 160, 133, 0.9), rgba(41, 128, 185, 0.9));
+    color: #fff;
+    background-image: url('overworked.jpg');
+    background-size: cover;
+    padding: 100px 20px;
+    background-attachment: fixed;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Titre Hero */
+.hero h2 {
+    font-size: 60px; /* taille ajustée */
+    font-weight: 900; /* gras */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: #f2eeee;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre ajoutée */
+    animation: slideInFade 1.8s ease-out; /* Animation ajoutée */
+}
+
+/* Description Hero */
+.hero p {
+    font-size: 35px; /* taille ajustée */
+    font-weight: 700; /* gras */
+    margin-bottom: 30px;
+    color: #f4e8e8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Ombre ajoutée */
+    animation: slideInFade 2.2s ease-out; /* Animation ajoutée */
+}
+
+/* Section Styles */
+.section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+/* Titre des sections */
+.section h2,
+.section h3 {
+    font-size: 36px;
+    color: #16a085;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Mission & Values Section */
+#mission-values .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#mission-values .values {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#mission-values .value {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#mission-values .value i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #16a085;
+}
+
+#mission-values .value h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+#mission-values .value p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Paragraphe de description dans Mission & Values */
+#mission-values p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Features and reasons blocks */
+.features,
+.reasons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.feature, .reason {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature i, .reason i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #16a085;
+}
+
+.feature h3, .reason h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.feature p, .reason p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive Design */
+
+/* Pour les écrans de taille inférieure à 768px (tablettes et mobiles) */
+@media (max-width: 768px) {
+
+    /* Navbar : Empiler les éléments en une seule colonne */
+    .nav-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+        display: none; /* Masquer le menu par défaut sur mobile */
+    }
+
+    /* Afficher le menu quand le bouton hamburger est activé */
+    .nav-list.active {
+        display: flex;
+    }
+
+    /* Section Hero : Ajuster la taille du texte et la hauteur */
+    .hero {
+        height: auto; /* Ajuste la hauteur de la section */
+        padding: 40px 20px;  /* Réduit le padding pour que la section ne prenne pas trop de place */
+        min-height: 70vh; /* Assure une hauteur minimale */
+    }
+
+    .hero h2 {
+        font-size: 45px; /* Taille réduite pour les petits écrans */
+        margin-bottom: 15px; /* Marge entre le titre et la description */
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 20px; /* Centrer et ajouter un peu de marge en bas */
+    }
+
+    /* Mission & Values Section : Adapter les valeurs en une seule colonne sur petits écrans */
+    #mission-values .values {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #mission-values .value {
+        flex: 1;
+        min-width: 100%;
+    }
+
+    /* Features and Reasons : Mettre les éléments en colonne */
+    .features, .reasons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feature, .reason {
+        min-width: 100%;
+    }
+
+    /* Section Titles : Ajuster la taille du texte */
+    .section h2,
+    .section h3 {
+        font-size: 28px;
+    }
+}
+
+/* Pour les écrans de taille inférieure à 480px (mobiles très petits) */
+@media (max-width: 480px) {
+
+    /* Section Hero : Réduire encore la taille du texte */
+    .hero h2 {
+        font-size: 28px;  /* Taille encore plus petite sur les très petits écrans */
+        margin-bottom: 10px;  /* Marge réduite */
+    }
+
+    .hero p {
+        font-size: 16px;  /* Taille lisible mais plus petite */
+    }
+
+    /* Mission & Values Section : Optimiser la disposition */
+    #mission-values p {
+        font-size: 16px;
+    }
+
+    .feature h3, .reason h3 {
+        font-size: 20px;
+    }
+
+    /* Réduire la taille du texte dans les features */
+    .feature p, .reason p {
+        font-size: 14px;
+    }
+
+    /* Ajuster le padding de la section */
+    .section {
+        padding: 40px 15px;  /* Réduire l'espacement vertical sur les petits écrans */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centre horizontalement le contenu */
+    align-items: center; /* Centre verticalement le contenu */
+    text-align: center; /* Centre le texte dans le conteneur */
+}
+
+footer .footer-left p {
+    margin: 0; /* Enlève les marges autour du texte */
+}
+
+/* Styles responsives : pour les petits écrans */
+
+/* Écrans de 768px et moins (tablettes et petits écrans) */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px; /* Ajuste le padding sur les petits écrans */
+    }
+
+    footer .footer-left {
+        width: 100%; /* Prend toute la largeur sur les petits écrans */
+    }
+}

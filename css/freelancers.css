@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global Styles - Applique la police à tout le texte */
+body {
+    font-family: 'Roboto', sans-serif;  /* Applique la police globale */
+    font-size: 16px;  /* Taille de texte par défaut */
+    color: #333;  /* Couleur de texte par défaut */
+    margin: 0;
+    padding: 0;
+}
+
+/* Titre principal (ex: h1, h2, h3, etc.) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif; /* Applique la même police aux titres */
+    font-weight: 700; /* Poids plus lourd pour les titres */
+    margin-bottom: 15px;
+}
+
+/* Styles pour les paragraphes généraux */
+p {
+    font-family: 'Roboto', sans-serif;  /* Police pour les paragraphes */
+    font-size: 16px;  /* Taille du texte des paragraphes */
+    color: #555;  /* Couleur de texte légèrement plus claire pour les paragraphes */
+    line-height: 1.6;  /* Hauteur de ligne pour améliorer la lisibilité */
+}
+h2  {
+    color: #16a085;
+}
+h3 {
+    color: #16a085;
+}
+
+/* Animation slideInFade */
+@keyframes slideInFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Logo positionné à gauche */
+.logo {
+    margin-top: 3px; /* Ajustement du top pour un meilleur alignement */
+    position: absolute; /* Permet de le placer exactement à gauche */
+    left: 20px; /* Plus éloigné du bord gauche */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%);
+}
+
+.site-logo {
+    width: 100px; /* Taille réduite du logo pour mieux s'adapter */
+    height: auto; /* Conserve les proportions */
+    display: block;
+}
+
+/* Style général de la navbar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond sombre avec transparence */
+    z-index: 10;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments à gauche et à droite */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Menu de navigation (liste horizontale par défaut) */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-left: 50px; /* Pousse les onglets plus vers la droite */
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list a i {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.nav-list a:hover {
+    color: #34a853;
+}
+
+/* Hamburger menu pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    transition: 0.3s;
+}
+
+/* Responsive Design pour mobile */
+@media (max-width: 1024px) {  /* Le hamburger apparaîtra dès que l'écran est plus petit que 1024px */
+    .nav-list {
+        display: none; /* Cache le menu lorsque la largeur est réduite */
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding-top: 60px; /* Un peu d'espace au-dessus du menu */
+    }
+
+    /* Affiche le menu quand il est actif (hamburger cliqué) */
+    .nav-list.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajout d'un espace entre le menu et le logo */
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+    }
+
+    /* Affiche le hamburger menu */
+    .hamburger {
+        display: flex;
+        margin-left: auto; /* Décalage à droite du hamburger */
+    }
+
+    /* Animation hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: absolute;
+    }
+
+    /* Espacement entre les éléments du menu */
+    .nav-list li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajoute une transition fluide pour l'apparition du menu hamburger */
+@media (max-width: 1200px) { /* La transition pour les tailles d'écrans plus petites */
+    .main-nav .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Positionne plus à droite les onglets sur les petits écrans */
+    .nav-list {
+        margin-left: 100px; /* Augmente la marge pour éloigner les onglets du logo */
+    }
+}
+
+
+/* Hero Section Styles */
+#freelancers-hero {
+    background: linear-gradient(to right, rgba(22, 160, 133, 0.9), rgba(41, 128, 185, 0.9)), url('../images/freelancers-hero.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 100px 20px;
+    background-attachment: fixed;
+    text-align: center;
+    background-size: cover;
+    background-image: url('buisnessteam.jpg');
+    height: 100vh; /* Hauteur de la section Hero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;  /* Assure que le padding ne surcharge pas la hauteur */
+}
+
+/* Hero Title avec animation */
+.hero-title {
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    animation: slideInFade 1.8s ease-out; /* Animation ajoutée */
+}
+
+/* Hero Description avec animation */
+.hero-description {
+    font-size: 35px;
+    margin-bottom: 30px;
+    color: #fff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    animation: slideInFade 2.2s ease-out; /* Animation ajoutée */
+}
+
+/* Call-to-Action Button */
+.cta-btn {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    background-color: #16a085;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #1abc9c;
+}
+
+/* Responsive Design for Hero Section */
+@media (max-width: 768px) {
+    /* Ajuste l'espace dans la section hero */
+    #freelancers-hero {
+        padding: 50px 20px;  /* Réduit le padding sur mobile */
+        height: auto; /* Ajuste la hauteur automatiquement selon le contenu */
+        min-height: 70vh; /* Assure une hauteur minimale de la section */
+    }
+
+    /* Réduire la taille du titre sur mobile */
+    .hero-title {
+        font-size: 36px; /* Plus petit pour mobile */
+        margin-bottom: 10px;
+    }
+
+    /* Réduire la taille de la description */
+    .hero-description {
+        font-size: 18px;  /* Plus petit pour mobile */
+        margin-bottom: 20px; /* Plus de marge entre la description et le bouton */
+        padding: 0 15px; /* Ajout de padding pour ne pas toucher les bords */
+    }
+
+    /* Ajuster la taille du bouton */
+    .cta-btn {
+        font-size: 16px; /* Plus petit pour mobile */
+        padding: 12px 25px;
+    }
+}
+
+/* Pour les écrans très petits (en dessous de 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px; /* Encore plus petit pour les très petits écrans */
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+/* Talent Pool Section */
+#freelancer-talent {
+    margin: 0 auto;   /* Centre la section horizontalement */
+    padding: 0 20px;  /* Ajoute un peu de marge interne pour ne pas que le contenu touche les bords */
+    max-width: 1200px; /* Limite la largeur maximale de la section pour qu'elle ne soit pas trop étendue */
+}
+
+/* Talent Grid Section */
+.talent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.talent-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.talent-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.talent-item i {
+    font-size: 40px;
+    color: #16a085;
+    margin-bottom: 15px;
+}
+
+.talent-item h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Verified Professionals Section */
+#verified-professionals h2,
+#verified-professionals p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px; /* Limite la largeur du texte */
+}
+
+#verified-professionals h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#verified-professionals p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+#verified-professionals {
+    padding: 60px 20px;  /* Ajoute de l'espace interne pour éloigner le contenu des bords */
+    background-color: #f9f9f9; /* Optionnel, pour distinguer la section */
+}
+
+/* Section Cards : on passe à un modèle flexible */
+.verification-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Permet de faire passer les éléments à la ligne si nécessaire */
+}
+
+.verification-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 30%; /* Largeur par défaut sur les grands écrans */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px; /* Espacement vertical entre les cartes */
+}
+
+.verification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.verification-card i {
+    font-size: 40px;
+    color: #16a085;
+    margin-bottom: 20px;
+}
+
+.verification-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #verified-professionals {
+        padding: 40px 15px;
+    }
+
+    #verified-professionals h2 {
+        font-size: 28px; /* Ajuste la taille du titre */
+    }
+
+    #verified-professionals p {
+        font-size: 16px; /* Réduit la taille du texte */
+    }
+
+    .verification-cards {
+        justify-content: center; /* Centre les cartes sur les petits écrans */
+    }
+
+    .verification-card {
+        width: 100%; /* Les cartes prennent 100% de la largeur sur mobile */
+        margin-bottom: 20px; /* Moins d'espace vertical */
+        padding: 20px; /* Réduit le padding pour les petits écrans */
+    }
+
+    .verification-card i {
+        font-size: 30px; /* Réduit la taille des icônes */
+    }
+
+    .verification-card h3 {
+        font-size: 18px; /* Réduit la taille du titre des cartes */
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;  /* Couleur de fond du footer */
+    color: #fff;  /* Forcer la couleur du texte en blanc */
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Centre horizontalement le contenu */
+    align-items: center;  /* Centre verticalement le contenu */
+    text-align: center;  /* Centre le texte */
+}
+
+/* S'assurer que tous les éléments à l'intérieur du footer héritent de la couleur blanche */
+footer .footer-left p,
+footer .footer-left a,  /* Si tu as des liens dans ton footer */
+footer .footer-left span, /* Si tu as des éléments span dans le footer */
+footer .footer-left li {  /* Si tu as une liste dans le footer */
+    color: #fff; /* Forcer la couleur du texte à blanc */
+}
+
+/* Styles responsives : pour les petits écrans */
+
+/* Écrans de 768px et moins (tablettes et petits écrans) */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px;  /* Ajuste le padding sur les petits écrans */
+    }
+
+    footer .footer-left {
+        width: 100%;  /* Prend toute la largeur sur les petits écrans */
+    }
+}
+
